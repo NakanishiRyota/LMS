@@ -1,6 +1,6 @@
 import React from "react";
 
-class Image extends React.Component {
+class MainImage extends React.Component {
     render() {
         return (
             <div className="main-image">
@@ -11,4 +11,4 @@ class Image extends React.Component {
     }
 }
 
-export default Image;
+export default MainImage;
