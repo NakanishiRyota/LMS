@@ -5,7 +5,10 @@ class MainImage extends React.Component {
         return (
             <div className="main-image">
                 <img className="image" src={this.props.image}
-                alt="アバターの画像です。"/>
+                    alt="アバターの画像です。"
+                    width="auto"
+                    height="300"
+                />
             </div>
         )
     }

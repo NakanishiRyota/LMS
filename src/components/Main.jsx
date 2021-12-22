@@ -6,7 +6,8 @@ class Main extends React.Component {
         return (
             <>
             <MainImage
-                image="choju25_0035.png"
+                    image="choju25_0035.png"
+
                 />
                 </>
         )
