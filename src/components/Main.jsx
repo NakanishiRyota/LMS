@@ -1,18 +1,17 @@
 import React from "react";
 import MainImage from "./Atom/MainImage"
 import Table from "./Atom/Table"
+import Form from "./Atom/Form"
 
 class Main extends React.Component {
     render() {
         return (
-            <>
-                <div>
-                    <MainImage image="choju25_0035.png" />
-                </div>
-                <div>
-                    <Table />
-                </div>
-            </>
+            <div className = "main">
+                <MainImage image="choju25_0035.png" />
+                <Table />
+                <Form/>
+            </div>
+
         )
     }
 }

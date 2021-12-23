@@ -10,9 +10,11 @@ body {
 }
 
 .main-image {
-    float:left;
     border-style: double;
-    margin:30px 30px 30px 150px
+    width: 600px;
+    height: 400px;
+    margin: 30px 30px 30px 70px;
+
 }
 
 #header {
@@ -21,21 +23,57 @@ body {
     background-color: rgb(253, 253, 253);
 }
 
+
 .header-image {
     float:left;
     width:70px;
-    padding: 35px 0px 10px 30px
+    padding: 35px 0px 10px 30px;
 }
 
 .table {
-    clear: left;
-    width: 490px;
-    height:  350px;
-    margin: 0px 0px 0px 150px;
+    margin: 0px 10px 10px 130px;
     text-align: center;
+    height: 400px;
+    width: 500px;
+
+}
+
+.form {
+    width: 40%;
+    padding: 50px;
+}
+
+
+.main {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height:900px;
+}
+
+.main-image img {
+    padding: 10px;
 }
 
 .table table {
     width: 100%;
-    height: 100%
+    height: 85%;
+}
+
+.form form {
+    padding: 0px 0px 0px 30px
+}
+
+.form form li {
+    list-style-type: none;
+    margin:70px
+}
+
+.form label {
+    font-size: 18px;
+}
+
+.form input {
+    width: 250px;
+    height: 40px
 }

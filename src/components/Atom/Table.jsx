@@ -2,6 +2,14 @@ import React from "react";
 
 
 class Table extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            week_time:"",
+            month_time:"",
+            total_time:""
+        }
+    }
     render() {
         return (
             <div className="table">
@@ -12,32 +20,32 @@ class Table extends React.Component {
                         <th>合計学習時間</th>
                     </tr>
                     <tr>
-                        <td>?h</td>
-                        <td>?h</td>
-                        <td>?h</td>
+                        <td>{this.state.week_time}h</td>
+                        <td>{this.state_month_time}h</td>
+                        <td>{this.state_total_time}h</td>
                     </tr>
                     <tr>
 
                     </tr>
                     <tr>
                         <td colspan="2">国語</td>
-                        <td></td>
+                        <td>h</td>
                     </tr>
                     <tr>
                         <td colspan="2">数学</td>
-                        <td></td>
+                        <td>h</td>
                     </tr>
                     <tr>
                         <td colspan="2">英語</td>
-                        <td></td>
+                        <td>h</td>
                     </tr>
                     <tr>
                         <td colspan="2">社会</td>
-                        <td></td>
+                        <td>h</td>
                     </tr>
                     <tr>
                         <td colspan="2">英語</td>
-                        <td></td>
+                        <td>h</td>
                     </tr>
                 </table>
             </div>
