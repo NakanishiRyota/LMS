@@ -7,7 +7,7 @@ class Main extends React.Component {
     render() {
         return (
             <div className = "main">
-                <MainImage image="boy.png" />
+                <MainImage image="kaeru.png" />
                 <Table />
                 <Form/>
             </div>
