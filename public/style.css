@@ -15,6 +15,7 @@ body {
     height: 400px;
     margin: 30px 30px 30px 70px;
     text-align: center;
+    border-radius: 10px;
 
 }
 
@@ -36,6 +37,7 @@ body {
     text-align: center;
     height: 400px;
     width: 500px;
+
 
 }
 
@@ -60,10 +62,11 @@ body {
 .table table {
     width: 100%;
     height: 85%;
+    border-radius: 5px;
 }
 
 .form form {
-    padding: 0px 0px 0px 30px
+    padding: 0px 0px 0px 30px;
 }
 
 .form form li {
@@ -77,5 +80,16 @@ body {
 
 .form input {
     width: 250px;
-    height: 40px
+    height: 40px;
+    border-radius: 5px;
+    border-style: solid;
+}
+
+.form input[type="submit"] {
+    background-color: rgb(95, 196, 255)
+}
+
+.form input[type="datetime-local"] {
+    width: 200px;
+    margin: 10px;
 }

@@ -6,14 +6,48 @@ class Form extends React.Component {
         this.state = {
             subject: "",
             date: "",
-            howLong:"",
+            startTime: "",
+            finishTime: "",
+            studyTime: "",
         }
     }
     handleSubjectChange(event) {
         const inputValue = event.target.value
         this.setState({ subject: inputValue })
     }
+    handleDateChange(event) {
+        const inputValue = event.target.value
+        this.setState({date: inputValue})
+    }
+    handleStartTimeChange(event) {
+        const inputValue = event.target.value
+        this.setState({startTime: inputValue
+        })
+    }
+
+    handleFinishTimeChange(event) {
+        const inputValue = event.target.value
+        this.setState({ finishTime: inputValue })
+        const start = new Date(this.state.startTime)
+        const finish = new Date(this.state.finishTime)
+        const startHour = start.getHours()
+        const finishHour = finish.getHours()
+        const startMinute = start.getMinutes()
+        const finishMinute = finish.getMinutes()
+        const diffMinute = (finishHour - startHour) * 60 + (finishMinute - startMinute)
+        const studyTime = diffMinute
+        this.setState({ studyTime: studyTime })
+    }
+
+
+    handleStudyTimeChange() {
+
+        
+    }
+    
     render() {
+
+
         
         return (
             <div className="form">
@@ -25,15 +59,18 @@ class Form extends React.Component {
                                 onChange={(event) => { this.handleSubjectChange(event) }} />
                         </li>
                         <li>
-                    <label for="date">日付：</label>
-                            <input id="date" type="date" value={this.state.date} />
+                            <label for="time">時間：</label>
+                            <div>
+                            <input type="datetime-local" id="time" value={this.state.startTime}
+                                    onChange={(event) => { this.handleStartTimeChange(event) }} />
+                                〜
+                                <input type="datetime-local" value={this.state.finishTime}
+                                    onChange={(event)=>{this.handleFinishTimeChange(event)}} />                     
+                            </div>
                         </li>
                         <li>
-                    <label for="time">時間：</label>
-                            <input id="time" type="time" value={this.state.howLong} />
-                        </li>
-                        <li>
-                            <input type="submit" value="記録する" />
+                            <input type="submit" value="記録する"
+                            onClick={()=>{this.handleStudyTimeChange()}}/>
                         </li>
                     </ul>
                 </form>
