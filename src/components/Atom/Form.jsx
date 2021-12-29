@@ -1,33 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 
-class Form extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            subject: "",
-            date: "",
-            startTime: "",
-            finishTime: "",
-            studyTime: "",
-        }
-    }
-    handleSubjectChange(event) {
+
+
+const Form = () => {
+
+    const [subject, setSubject] = useState("");
+    const [startTime, setStartTime] = useState("");
+    const [finishTime, setFinishTime] = useState("");
+    const [studyTime, setStudyTime] = useState("");
+
+    const handleSubjectChange = (event) => {
         const inputValue = event.target.value
-        this.setState({ subject: inputValue })
-    }
-    handleDateChange(event) {
-        const inputValue = event.target.value
-        this.setState({date: inputValue})
-    }
-    handleStartTimeChange(event) {
-        const inputValue = event.target.value
-        this.setState({startTime: inputValue
-        })
+        setSubject(inputValue);
     }
 
-    handleFinishTimeChange(event) {
+    const handleStartTimeChange = (event) => {
         const inputValue = event.target.value
-        this.setState({ finishTime: inputValue })
+        setStartTime(inputValue);
+    }
+
+    const handleFinishTimeChange = (event) => {
+        const inputValue = event.target.value
+        setFinishTime(inputValue);
+    }
+
+    const handleStudyTimeChange = () => {
         const start = new Date(this.state.startTime)
         const finish = new Date(this.state.finishTime)
         const startHour = start.getHours()
@@ -36,47 +33,37 @@ class Form extends React.Component {
         const finishMinute = finish.getMinutes()
         const diffMinute = (finishHour - startHour) * 60 + (finishMinute - startMinute)
         const studyTime = diffMinute
-        this.setState({ studyTime: studyTime })
+        setStudyTime(studyTime);
     }
-
-
-    handleStudyTimeChange() {
-
-        
-    }
-    
-    render() {
-
-
-        
+          
         return (
             <div className="form">
                 <form>
                     <ul>
                         <li>
                     <label for="subject">科目：</label>
-                    <input id="subject" type="text" name="subject" value={this.state.subject}
-                                onChange={(event) => { this.handleSubjectChange(event) }} />
+                    <input id="subject" type="text" name="subject" value={subject}
+                                onChange={(event) => { handleSubjectChange(event) }} />
                         </li>
                         <li>
                             <label for="time">時間：</label>
                             <div>
-                            <input type="datetime-local" id="time" value={this.state.startTime}
-                                    onChange={(event) => { this.handleStartTimeChange(event) }} />
+                            <input type="datetime-local" id="time" value={startTime}
+                                    onChange={(event) => { handleStartTimeChange(event) }} />
                                 〜
-                                <input type="datetime-local" value={this.state.finishTime}
-                                    onChange={(event)=>{this.handleFinishTimeChange(event)}} />                     
+                                <input type="datetime-local" value={finishTime}
+                                    onChange={(event)=>{ handleFinishTimeChange(event)}} />                     
                             </div>
                         </li>
+                        {studyTime}
                         <li>
                             <input type="submit" value="記録する"
-                            onClick={()=>{this.handleStudyTimeChange()}}/>
+                            onClick={()=>{ handleStudyTimeChange()}}/>
                         </li>
                     </ul>
                 </form>
             </div>
         )
     }
-}
 
 export default Form;

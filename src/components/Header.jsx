@@ -1,9 +1,8 @@
 import React from "react";
 import HeaderImage from "./Atom/HeaderImage";
 
-class Header extends React.Component {
-    render() {
-        return (
+const Header = () => {
+    return (
             <>
             <div className="header-image">
                     <HeaderImage
@@ -14,8 +13,8 @@ class Header extends React.Component {
                 <h1>学習管理アプリ</h1>
             </div>
             </>
-        )
-    }
+    )
 }
+
 
 export default Header

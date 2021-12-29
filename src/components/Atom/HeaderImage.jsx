@@ -1,16 +1,14 @@
 import React from "react";
 
-class HeaderImage extends React.Component {
-    render() {
-        return (
+const HeaderImage = (props) => {
+    return (
             <>
-                <img src={this.props.image}
+                <img src={props.image}
                     width="auto"
                     height="40"
                 />
             </>
-        )
-    }
+    )
 }
 
 export default HeaderImage;

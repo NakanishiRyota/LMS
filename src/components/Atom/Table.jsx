@@ -1,16 +1,11 @@
-import React from "react";
+import React,{useState} from "react";
 
 
-class Table extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            week_time:"",
-            month_time:"",
-            total_time:""
-        }
-    }
-    render() {
+const Table = () => {
+    const [weekTime, setWeekTime] = useState("");
+    const [monthTime, setMonthTime] = useState("");
+    const [totalTime, setTotalTime] = useState("");
+
         return (
             <div className="table">
                 <table border="1">
@@ -20,9 +15,9 @@ class Table extends React.Component {
                         <th>合計学習時間</th>
                     </tr>
                     <tr>
-                        <td>{this.state.week_time}h</td>
-                        <td>{this.state_month_time}h</td>
-                        <td>{this.state_total_time}h</td>
+                        <td>{weekTime}h</td>
+                        <td>{monthTime}h</td>
+                        <td>{totalTime}h</td>
                     </tr>
                     <tr>
 
@@ -51,7 +46,6 @@ class Table extends React.Component {
             </div>
         )
     }
-}
 
 
 export default Table;
