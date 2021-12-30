@@ -1,6 +1,3 @@
-import React from "react";
-
-
 const MainImage = (props) => {
     return (
             <div className="main-image">
