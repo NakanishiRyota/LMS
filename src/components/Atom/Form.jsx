@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState , useEffect} from "react";
 import Table from "./Table";
 
 const Form = () => {
@@ -29,15 +29,11 @@ const Form = () => {
     const handleFinishTimeChange = (event) => {
         const inputValue = event.target.value
         setFinishTime(inputValue)
-        const start = new Date(startTime)
-        const finish = new Date(finishTime)
-        const startHour = start.getHours()
-        const finishHour = finish.getHours()
-        const startMinute = start.getMinutes()
-        const finishMinute = finish.getMinutes()
-        const diffMinute = (finishHour - startHour) * 60 + (finishMinute - startMinute)
-        const studyTime = diffMinute
-        setStudyTime(studyTime);
+ 
+
+    }
+    
+    useEffect(() => {
         if (subject === "国語") {
             setJapaneseStudyTime(studyTime)
         } else if (subject === "数学") {
@@ -49,10 +45,18 @@ const Form = () => {
         } else if (subject === "理科") {
             setScienceStudyTime(studyTime)
         }
-
-    }
+    }, [studyTime])
 
     const handleStudyTimeChange = () => {
+        const start = new Date(startTime)
+        const finish = new Date(finishTime)
+        const startHour = start.getHours()
+        const finishHour = finish.getHours()
+        const startMinute = start.getMinutes()
+        const finishMinute = finish.getMinutes()
+        const diffMinute = (finishHour - startHour) * 60 + (finishMinute - startMinute)
+        const studyTime = diffMinute
+        setStudyTime(studyTime);
 
     }
 
@@ -60,7 +64,12 @@ const Form = () => {
           
     return (
         <>
-            <Table studyTime={studyTime} />
+            <Table studyTime={studyTime}
+                japaneseStudyTime={japaneseStudyTime}
+                mathStudyTime={mathStudyTime}
+                englishStudyTime={englishStudyTime}
+                socialstudyStudyTime={socialstudyStudyTime}
+                scienceStudyTime={scienceStudyTime}/>
             <div className="form">
                 <form>
                     <ul>
@@ -88,7 +97,7 @@ const Form = () => {
                         </li>
                         <li>
                             <input type="submit" value="記録する"
-                            onSubmint={()=>{ handleStudyTimeChange()}}/>
+                            onClick={()=>{ handleStudyTimeChange()}}/>
                         </li>
                     </ul>
                 </form>

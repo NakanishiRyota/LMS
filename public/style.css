@@ -2,6 +2,7 @@ body {
     font-family: "Tsukushi A Round Gothic","筑紫A丸ゴシック Std M";
     background-color:rgb(249, 255, 251);
     margin: 0px;
+    width: 1400px;
 }
 
 .header-title {
@@ -23,6 +24,7 @@ body {
     border-style: inset;
     border-width: 0px 0px 1px 0px;
     background-color: rgb(253, 253, 253);
+    width: 1450px;
 }
 
 
@@ -30,6 +32,7 @@ body {
     float:left;
     width:70px;
     padding: 35px 0px 10px 30px;
+
 }
 
 .table {
