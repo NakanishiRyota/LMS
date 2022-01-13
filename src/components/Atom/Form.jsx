@@ -3,15 +3,18 @@ import Table from "./Table";
 
 const Form = () => {
 
-    const [subject, setSubject] = useState("");
+    const [subject, setSubject] = useState("国語");
     const [japaneseStudyTime, setJapaneseStudyTime] = useState(0);
     const [mathStudyTime, setMathStudyTime] = useState(0);
     const [englishStudyTime, setEnglishStudyTime] = useState(0);
     const [socialstudyStudyTime, setSocialstudyStudyTime] = useState(0);
     const [scienceStudyTime, setScienceStudyTime] = useState(0);
-    const [startTime, setStartTime] = useState("");
-    const [finishTime, setFinishTime] = useState("");
-    const [studyTime, setStudyTime] = useState("");
+    const [startTime, setStartTime] = useState(0);
+    const [finishTime, setFinishTime] = useState(0);
+    const [studyTime, setStudyTime] = useState(0);
+    const [weekStudyTime, setWeekStudyTime] = useState(0);
+    const [monthStudyTime, setMonthStudyTime] = useState(0);
+    const [totalStudyTime, setTotalStudyTime] = useState(0);
 
 
 
@@ -35,17 +38,29 @@ const Form = () => {
     
     useEffect(() => {
         if (subject === "国語") {
-            setJapaneseStudyTime(studyTime)
+            setJapaneseStudyTime(prevState => prevState + studyTime)
         } else if (subject === "数学") {
-            setMathStudyTime(studyTime)
+            setMathStudyTime(prevState => prevState + studyTime)
         } else if (subject === "英語") {
-            setEnglishStudyTime(studyTime)
+            setEnglishStudyTime(prevState => prevState + studyTime)
         } else if (subject === "社会") {
-            setSocialstudyStudyTime(studyTime)
+            setSocialstudyStudyTime(prevState => prevState + studyTime)
         } else if (subject === "理科") {
-            setScienceStudyTime(studyTime)
+            setScienceStudyTime(prevState => prevState + studyTime)
         }
     }, [studyTime])
+
+    useEffect(() => {
+        setWeekStudyTime(prevState => prevState + studyTime);
+    }, [studyTime]);
+    
+    useEffect(() => {
+        setMonthStudyTime(prevState => prevState + studyTime);
+    }, [studyTime]);
+
+    useEffect(() => {
+        setTotalStudyTime(prevState => prevState + studyTime);
+    }, [studyTime]);
 
     const handleStudyTimeChange = () => {
         const start = new Date(startTime)
@@ -64,12 +79,14 @@ const Form = () => {
           
     return (
         <>
-            <Table studyTime={studyTime}
+            <Table totalStudyTime={totalStudyTime}
                 japaneseStudyTime={japaneseStudyTime}
                 mathStudyTime={mathStudyTime}
                 englishStudyTime={englishStudyTime}
                 socialstudyStudyTime={socialstudyStudyTime}
-                scienceStudyTime={scienceStudyTime}/>
+                scienceStudyTime={scienceStudyTime}
+                weekStudyTime={weekStudyTime}
+                monthStudyTime={monthStudyTime}/>
             <div className="form">
                 <form>
                     <ul>
@@ -96,7 +113,7 @@ const Form = () => {
                             </div>
                         </li>
                         <li>
-                            <input type="submit" value="記録する"
+                            <input type="button" value="記録する"
                             onClick={()=>{ handleStudyTimeChange()}}/>
                         </li>
                     </ul>

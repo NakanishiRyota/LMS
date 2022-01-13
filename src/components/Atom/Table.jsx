@@ -12,9 +12,9 @@ const Table = memo((props) => {
                     <th>合計学習時間</th>
                 </tr>
                 <tr>
-                    <td>0min</td>
-                    <td>0min</td>
-                    <td>{props.studyTime}min</td>
+                    <td>{props.weekStudyTime}min</td>
+                    <td>{props.monthStudyTime}min</td>
+                    <td>{props.totalStudyTime}min</td>
                 </tr>
                 <tr>
 
