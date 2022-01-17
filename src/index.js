@@ -6,3 +6,4 @@ import ReactDOM from 'react-dom';
 
 ReactDOM.render(<Header />, document.getElementById("header"))
 ReactDOM.render(<Main />,document.getElementById("main"))
+
