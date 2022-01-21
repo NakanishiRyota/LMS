@@ -4,7 +4,7 @@ import Form from "./Atom/Form"
 const Main = () => {
     return (
         <div className="main">
-            <MainImage image="kaeru.png" />
+            <MainImage image="../kaeru.png" />
 
             <Form />
         </div>

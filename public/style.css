@@ -29,6 +29,7 @@ body {
 
 
 .header-image {
+    
     float:left;
     width:70px;
     padding: 35px 0px 10px 30px;
@@ -89,7 +90,14 @@ body {
 }
 
 .form input[type="button"] {
-    background-color: rgb(95, 196, 255)
+    background-color: rgb(95, 196, 255);;
+    border: none;
+}
+
+.form input[type="button"]:hover {
+    box-shadow: 5px 5px 0 0 black;
+    transform: translate(-2.5px, -2.5px);
+    transition: all 0.3s;
 }
 
 .form input[type="datetime-local"] {

@@ -3,6 +3,7 @@ import Table from "./Table";
 
 const Form = () => {
 
+    
     const [subject, setSubject] = useState("国語");
     const [japaneseStudyTime, setJapaneseStudyTime] = useState(0);
     const [mathStudyTime, setMathStudyTime] = useState(0);
@@ -35,20 +36,27 @@ const Form = () => {
  
 
     }
-    
+
     useEffect(() => {
-        if (subject === "国語") {
-            setJapaneseStudyTime(prevState => prevState + studyTime)
-        } else if (subject === "数学") {
-            setMathStudyTime(prevState => prevState + studyTime)
-        } else if (subject === "英語") {
-            setEnglishStudyTime(prevState => prevState + studyTime)
-        } else if (subject === "社会") {
-            setSocialstudyStudyTime(prevState => prevState + studyTime)
-        } else if (subject === "理科") {
-            setScienceStudyTime(prevState => prevState + studyTime)
+        switch (subject) {
+            case ("国語"):
+                setJapaneseStudyTime(prevState => prevState + studyTime);
+                break;
+            case ("数学"):
+                setMathStudyTime(prevState => prevState + studyTime);
+                break;
+            case ("英語"):
+                setEnglishStudyTime(prevState => prevState + studyTime);
+                break;
+            case ("社会"):
+                setSocialstudyStudyTime(prevState => prevState + studyTime);
+                break;
+            case ("理科"):
+                setScienceStudyTime(prevState => prevState + studyTime);
+                break;
         }
-    }, [studyTime])
+    },[studyTime])
+    
 
     useEffect(() => {
         setWeekStudyTime(prevState => prevState + studyTime);
